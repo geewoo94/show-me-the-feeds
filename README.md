@@ -1,24 +1,60 @@
-# commento-project
+# 👋 Show me the Feeds
 
-## Project setup
-```
-npm install
-```
+vue와 react의 차이를 조사하고 합리적인 vue프로젝트의 디렉토리 구조와 데이터 흐름을 설계하는것을 목표로 합니다.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## TODOS
+📌 **반응형 웹**
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- [x] **PC**
+- [ ] **Tablet/Mobile**: 768px 이하
 
-### Lints and fixes files
-```
-npm run lint
-```
+📌 **피드 컨텐츠**
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [x] 글자 수가 많으면 자르고 생략기호(...) 표시
+- [ ] 컨텐츠 불러오기 (infinite-loading)
+    - [x] 처음에 10개만 불러오기
+    - [ ] 스크롤이 최하단에 닿을 때마다 리스트에 10개씩 추가
+
+📌 **정렬 (오름차순, 내림차순)**
+
+- [x] 선택한 정렬순으로 리스트 불러오기
+- [x] 선택된 정렬만 css 강조하기
+- [x] 기본값: 오름차순
+
+📌 **필터 (modal)**
+
+- [ ] 별도 컴포넌트로 분리하여 개발
+- [ ] input type="checkbox"
+- [ ] 기본값: 모두 선택
+- [ ] 저장을 클릭하면 저장되고 모달이 종료됨
+
+📌 **광고 삽입**
+
+- [ ] 4번째마다 광고 1개 삽입
+- [ ] 광고 이미지 비율 유지
+- [ ] 글자 수가 많으면 자르고 생략기호(...) 표시
+
+📌 **디테일 페이지**
+
+- [ ] 피드에서 카드를 클릭하면 디테일 페이지로 이동(/:id)
+
+📌 **고객센터 대응**
+
+- [ ] 피드 시스템을 사용한 고객들이 남긴 의견을 반영하기
+
+> 🗣 [고객센터 의견](https://www.notion.so/1d8eafffa6084029ad0e04f4072d3029)
+
+
+## Daily Retrospective
+### 2021 / 2 / 17
+
+**today**
+- vue의 문법 공부
+- concrete main page
+- vuex 조사
+- vuex를 사용하면 결국 flux패턴처럼 단방향 데이터 흐름이 되기때문에 이에 맞춰 코드 리팩토링
+
+**tomorrow**
+- infinity scroll 구현
+- 디자인 시안을 본 후 컴포넌트 분리 실시
+- vuex의 mutations, actions들을 쉽게 업데이트 해주는 함수 구현. mapActions 조사
