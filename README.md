@@ -58,3 +58,8 @@ vue와 react의 차이를 조사하고 합리적인 vue프로젝트의 디렉토
 - infinity scroll 구현
 - 디자인 시안을 본 후 컴포넌트 분리 실시
 - vuex의 mutations, actions들을 쉽게 업데이트 해주는 함수 구현. mapActions 조사
+
+**memo**
+- 내림차순, 오름차순 클릭시 api콜을 기다린 후에 색이 바뀜.
+  ux적으로 좋지 않으니 해당부분 수정 필요.
+- vuex api 추가적인 조사 필요. 효과적인 스토어 관리를 위해.
