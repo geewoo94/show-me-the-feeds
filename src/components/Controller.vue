@@ -2,14 +2,20 @@
   <div class="controller">
     <div class="sort-buttons">
       <div class="sort-button">
-        <i class="dot dot__active"></i>
-        <span class="text__active">
+        <i v-bind:class="'dot ' + (isAscending ? 'dot__active' : '')"></i>
+        <span
+          v-bind:class="(isAscending ? 'text__active' : 'text__inactive')"
+          @click="setOrderAscending"
+        >
           오름차순
         </span>
       </div>
       <div class="sort-button">
-        <i class="dot"></i>
-        <span class="text__inactive">
+        <i v-bind:class="'dot ' + (isAscending ? '' : 'dot__active')"></i>
+        <span
+          v-bind:class="(isAscending ? 'text__inactive' : 'text__active')"
+          @click="setOrderDescending"
+        >
           내림차순
         </span>
       </div>
@@ -21,8 +27,24 @@
 </template>
 
 <script>
+import FeedQuery from '../shapes/FeedQuery'
+import store, { GET_FEEDS } from '../store'
+
 export default {
-  name: "Controller"
+  name: "Controller",
+  computed: {
+    isAscending: () => store.getters.isAscending
+  },
+  methods: {
+    setOrderDescending() {
+      const query = new FeedQuery({ ord: "desc" })
+      store.dispatch(GET_FEEDS, query)
+    },
+    setOrderAscending() {
+      const query = new FeedQuery({ ord: "asc" })
+      store.dispatch(GET_FEEDS, query)
+    },
+  }
 }
 </script>
 

@@ -21,8 +21,6 @@ import Controller from './Controller.vue'
 import Feed from './Feed.vue'
 import store, { INIT_FEEDS } from '../store'
 
-store.commit(INIT_FEEDS)
-
 export default {
   name: 'Feeds',
   components: {
@@ -30,9 +28,10 @@ export default {
     Feed,
   },
   computed: {
-    feeds: () => {
-      return store.state.feeds
-    }
+    feeds: () => store.state.feeds
+  },
+  created() {
+    store.dispatch(INIT_FEEDS)
   }
 }
 </script>

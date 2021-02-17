@@ -1,4 +1,4 @@
-// date form YYYY-MM-DD
+// validate date form YYYY-MM-DD
 const isValidDateForm = (date) => {
   if (date.length !== 10) throw 'invalid date form'
 
@@ -30,6 +30,7 @@ const Feed = class {
     if (!item.title || typeof item.title !== 'string') throw 'invalid feed title'
     if (!item.contents || typeof item.contents !== 'string') throw 'invalid feed contents'
     if (!item.category_id || typeof item.category_id !== 'number') throw 'invalid feed category_id'
+    if (!item.category_id || typeof item.category_name !== 'string') throw 'invalid feed category_name'
     if (!item.user_id || typeof item.user_id !== 'number') throw 'invalid feed user_id'
     if (
       !item.created_at ||
@@ -46,6 +47,7 @@ const Feed = class {
     this.title = item.title
     this.contents = item.contents
     this.category_id = item.category_id
+    this.category_name = item.category_name
     this.user_id = item.user_id
     this.created_at = item.created_at
     this.updated_at = item.updated_at

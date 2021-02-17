@@ -1,6 +1,6 @@
 const FeedQuery = class {
   constructor(query) {
-    Object.entries(query).forEach(([ key, value ]) => {
+    query && Object.entries(query).forEach(([ key, value ]) => {
       switch (key) {
         case "page":
           if (typeof value !== 'number') throw 'invalid page'
@@ -20,10 +20,10 @@ const FeedQuery = class {
       }
     })
 
-    this.page = query.page
-    this.ord = query.ord
-    this.category = query.category
-    this.limit = query.limit
+    this.page = query?.page ?? 1
+    this.ord = query?.ord ?? "asc"
+    this.category = query?.category ?? "1"
+    this.limit = query?.limit ?? 10
   }
 }
 
