@@ -1,26 +1,27 @@
 <template>
   <div class="feeds">
     <Controller />
-    <Feed
-      :categoryName="'11'"
-      :contentsId="22"
-      :userId="123"
-      :createdAt="'2021-02-15'"
-      :title="'Title!!!!'"
-      :description="'ddescription'"
-    />
+    <ul>
+      <Feed
+        v-bind:key="feed.id"
+        v-for="feed in feeds"
+        :categoryName="feed.category_name"
+        :contentsId="feed.id"
+        :userId="feed.user_id"
+        :createdAt="'2021-02-15'"
+        :title="feed.title"
+        :contents="feed.contents"
+      />
+    </ul>
   </div>
 </template>
 
 <script>
 import Controller from './Controller.vue'
 import Feed from './Feed.vue'
+import store, { INIT_FEEDS } from '../store'
 
-const data = fetch('https://problem.comento.kr/api/list?page=1&ord=asc&category%5B%5D=1&limit=10')
-  .then(response => response.json())
-  .then(json => console.log(json));
-
-console.log(data);
+store.commit(INIT_FEEDS)
 
 export default {
   name: 'Feeds',
@@ -28,6 +29,11 @@ export default {
     Controller,
     Feed,
   },
+  computed: {
+    feeds: () => {
+      return store.state.feeds
+    }
+  }
 }
 </script>
 

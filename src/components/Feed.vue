@@ -9,8 +9,8 @@
         <span class="user-id">{{ userId }}</span>
         <span class="created-at">{{ createdAt }}</span>
       </div>
-      <h3 class="title">{{ title }}</h3>
-      <p class="description">{{ description }}</p>
+      <h3 class="title singleline-ellipsis">{{ title }}</h3>
+      <p class="contents singleline-ellipsis">{{ contents }}</p>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
     userId: Number,
     createdAt: String,
     title: String,
-    description: String,
+    contents: String,
   },
 }
 </script>
@@ -35,6 +35,7 @@ export default {
   border: solid 1px #e1e4e7;
   border-radius: 5px;
   font-size: 13px;
+  margin-bottom: 20px;
 }
 
 .head {
@@ -73,9 +74,17 @@ export default {
   font-size: 18px;
   font-weight: bold;
   margin: 10px 10px 10px 0;
+  width: 100%;
 }
 
-.description {
+.contents {
   font-size: 16px;
+  width: 100%;
+}
+
+.singleline-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
